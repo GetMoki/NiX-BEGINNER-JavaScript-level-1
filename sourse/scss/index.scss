@@ -1,0 +1,282 @@
+//=========================================================================================
+//This SCSS file - is the file in which site styles are created and converted to css 
+//The Mobile First method was used to develop the site
+//The BEM methodology is the basis for building the class dependence of elements
+//The site is development with a cross-browser and flex-adaptive user interface
+//=========================================================================================
+//Connecting the reset file
+@import 'nullstyle.scss';
+//=========================================================================================
+//Connecting a font family
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap');
+//=========================================================================================
+//variable
+//colors:
+$Water: #8db9ca;
+$Chocolate: #301B28;
+$White: #FFFFFF;
+$Raspberry : #e4002b;
+
+//=========================================================================================
+.wrapper {
+  background-color: $Water;
+  background-size: cover;
+  color: $White;
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  min-height: 100%;
+}
+.page {
+  // .page__header
+  &__header {
+    padding-top: 60px;
+    text-align: center;
+    line-height: 1.2;
+  }
+  // .page__content
+  &__content {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  // .page__footer
+  &__footer {
+    padding-bottom: 50px;
+  }
+}
+
+//=========================================================================================
+.header {
+  // .header__title
+  &__title {
+    font-size: 46px;
+    font-weight: 600;
+    & span {
+      color: Yellow;
+    }
+  }
+  // .header__subtitle
+  &__subtitle {
+    margin-top: 15px;
+    font-size: 36px;
+    font-weight: 500;
+    & span {
+      color: $Raspberry;
+    }
+  }
+  // .header__text
+  &__text {
+    margin-top: 5px;
+    font-size: 30px;
+    & span {
+      color: $Raspberry;
+    }
+  }
+}
+//=========================================================================================
+.content {
+  // .content__levels
+  &__levels {
+    width: 50%;
+  }
+  // .content__place
+  &__place {
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+//=========================================================================================
+.levels {
+  // .levels__list
+  &__list {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  // levels__item 
+  &__item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    color: $Raspberry;
+    border: 2px solid #00205b;
+    border-radius: 5px;
+    width: 50px;
+    height: 50px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1;
+    transition: all 0.3s linear 0.1s;
+    cursor: pointer;
+    &:hover{
+      transform: scale(1.1);
+      background-color: yellow;
+    }
+    &._active{
+      color: $White;
+      background-color: green;
+    }
+  }
+}
+//=========================================================================================
+.place {
+  // .place__task
+  &__task {
+    min-height: 100px;
+    margin-top: 25px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 15px;
+    border-bottom: 4px solid #257985;
+    background: $White;
+    color: $Chocolate;
+  }
+  // .place__row
+  &__row {
+    width: 100%;
+    margin-top: 15px;
+    display: flex; 
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  // .place__column
+  &__column {
+    width: 48%;
+  }
+  // .place__solution
+  &__solution {
+    min-height: 300px;
+    max-height: 800px;;
+    padding: 10px;
+    border-radius: 15px;
+    border-bottom: 4px solid #257985;
+    color: $White;
+    line-height: 1.2;
+    background: $Chocolate;
+    overflow: auto;
+  }
+  // .place__result
+  &__result {
+    min-height: 200px;
+    max-height: 500px;
+    padding: 10px;
+    border-radius: 15px;
+    border-bottom: 4px solid #257985;
+    color: $White;
+    line-height: 1.2;
+    background: $Chocolate;
+    overflow: auto;
+  }
+  // .place__btns
+  &__btns {
+    margin-top: 10px;
+  }
+}
+.btn {
+  // .btn__item
+  &__item {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    width: 150px;
+    font-size: 18px;
+    line-height: 2;
+    padding: 5px 15px;
+    background: $White;
+    border: 2px solid #b18597;
+    border-radius: 0.75em;
+    transition: transform 0.15s;
+    transform-style: preserve-3d;
+    &::before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #f9c4d2;
+      border-radius: inherit;
+      box-shadow: 0 0 0 2px #b18597;
+      transform: translate3d(0, 0.75em, -1em);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    &:hover {
+      background: #ffe9e9;
+      transform: translate(0, 0.25em);
+      &::before {
+        box-shadow: 0 0 0 2px #b18597;
+        transform: translate3d(0, 0.5em, -1em);
+      }
+    }
+    &:active {
+      background: #ffe9e9;
+      transform: translate(0em, 0.75em);
+      &::before {
+        box-shadow: 0 0 0 2px #b18597;
+        transform: translate3d(0, 0, -1em);
+      }
+    }
+   // .btn__item_run
+   &_run {}
+   // .btn__item_reset
+   &_reset {}
+  }
+}
+//=========================================================================================
+.footer {
+
+  // .footer__row
+  &__row {
+  margin: 40px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 50%
+  }
+  // .footer__column
+  &__column {
+    width: 230px;
+    text-align: center;
+  }
+  // .footer__title
+  &__title {
+    font-size: 18px;
+    & span{
+      color: $Raspberry;
+      font-weight: 600;
+    }
+  }
+  // .footer__item
+  &__item {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }
+  // .footer__link
+  &__link {
+    margin: 0px 10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  // .footer__img
+  &__img {
+    max-width: 60%;
+  }
+}
